@@ -1,0 +1,166 @@
+<html>
+<title>La cocina de Yoli</title>
+<!-- Bootstrap-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!-- Estilo propio-->
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<!--Iconos font-aweasome-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="icon" type="image/ico" href="/img/icono.ico" />
+
+<main>
+	<nav style="background-color: #C00A27;" class="navbar navbar-expand-lg navbar-light">
+		<a style="color: white;" class="navbar-brand" href="/"><img width="120" height="160" src="/img/muñeca.png">
+			<img src="/img/a.svg"></a>
+		<button style="background-color: white;" class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span style="background-color: white;" class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+			<center>
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item">
+						<a href="/" style="color: white;" class="nav-link btn-block"> <i class="fas fa-home"></i>
+							Inicio</a>
+					</li>
+					<li class="nav-item">
+						</i> <a style="color: white;" class="nav-link disabled" href="/about"><i class="far fa-user">
+							</i>
+							Nosotros</a>
+					</li>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+				</ul>
+			</center>
+		</div>
+
+		<div class="table d-none d-md-none d-lg-block">
+
+			<div class="row">
+				<a href="https://wa.link/q1yviy"> <img width="180" height="140" src="/img/domicilio.png"></a>
+			</div>
+		</div>
+		</div>
+	</nav>
+</main>
+<hr>
+
+<body>
+	{{#if user.name}}
+
+	<main class="container">
+		{{>sidebar}}
+		<div class="row">
+			<h5 style="vertical-align:auto;">Usuario administrador: <a data-toggle="modal" data-target="#sugerencia"
+					style="color: #C00A27;" href="users/myperf">{{user.name}}</a></h5>
+		</div>
+		<hr>
+	</main>
+	{{>slide}}
+	<main class="container">
+		<div class="n">
+			{{>messages}}
+			{{>errors}}
+			{{{body}}}
+
+
+	</main>
+	</div>
+	</div>
+	{{else}}
+	{{>slide}}
+	<main class="container">
+		{{>messages}}
+		{{>errors}}
+		{{{body}}}
+
+
+	</main>
+	{{/if}}
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+	<main class="container p-4">
+		<a href=""><i class="fas fa-chevron-up fa-2x" style="color: #191919; position: right; "></i></a>
+	</main>
+	<div style="width:100%; bottom: 0; background-color: #C00A27; height: 240px;">
+		<main class="container p-4">
+			<div class="row">
+				<div class="col">
+				</div>
+				<div class="col">
+					<div class="row">
+						<span style="color: cornsilk;">Dirección: cra 23 #15-90 Las cuadras</span>
+					</div>
+					<div class="row">
+						<span style="color: cornsilk;">Telefono: 3125599987</span>
+					</div>
+					<div class="row">
+						<span style="color: cornsilk;">Telefono: 3125599987</span>
+					</div>
+					<div class="row">
+						<span style="color: cornsilk;">Telefono: 3125599987</span>
+					</div>
+				</div>
+				<div class="col">
+					<a style="color: cornsilk;" href="mailto:lacocinadeyoli@gmail.com">Contacto</a><br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="redes-container">
+					<ul>
+						<li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col"></div>
+				<div class="col"><span style=" text-align:center; color: cornsilk;"><i>La cocina de yoli 2020 | Colombia
+						</i></span></div>
+				<div class="col"></div>
+
+			</div>
+
+		</main>
+	</div>
+
+</body>
+
+</html>
+<!-- Modal -->
+<div class="modal fade" id="sugerencia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalCenterTitle">Mi perfil</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<h5>{{user.name}}</h5>
+					<p></span><i style="color: #C00A27;" class="fas fa-user"></i> administrador</p>
+					<label><b>Correo:</b> {{user.email}}</label><br>
+					<label><b>Telefono:</b> {{user.telephone}}</label><br>
+					<label><b>País:</b> {{user.country}}</label><br>
+				</div>
+				<div class="modal-footer">
+					<button type="button" style="background-color:#C00A27; color: aliceblue;" class="btn btn-block"
+						data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

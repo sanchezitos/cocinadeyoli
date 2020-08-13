@@ -1,0 +1,53 @@
+<div class="row">
+	<script>
+		if (screen.width < 800) {
+			document.write('<div class="row">');
+		} else {
+			document.write('<div class="col">');
+		}
+	</script>
+	<hr>
+	<hr>
+	<hr>
+	<center>
+		<div class="row">
+			<div class="col">
+				<div class="img-contenedor">
+					<a href="/comida-rapida" class=""><img width="350" height="270" src="/img/comida.png"></a>
+				</div>
+				<div class="img-contenedor">
+					<a href="/bebidas" class=""><img width="350" height="270" src="/img/bebida.jpg"></a>
+				</div>
+			</div>
+			<div class="col">
+				<div class="img-contenedor">
+					<a href="/postres" class=""><img width="350" height="270" src="/img/postres.png"></a>
+				</div>
+				<div class="img-contenedor">
+					<a href="/salsas" class=""><img width="350" height="270" src="/img/salsas.jpg"></a>
+				</div>
+			</div>
+		</div>
+	</center>
+</div>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function () {
+
+		$('[data-toggle="tooltip"]').tooltip();
+		if ('{{user.typeuser}}' == "user") {
+			$('.notifications').show();
+		} else {
+			$('.notifications').hide();
+		}
+		setInterval(function () {
+
+			$("#notifications").load(' #noti');
+		}, 10000);
+
+	});
+</script>
