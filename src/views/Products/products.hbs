@@ -1,0 +1,346 @@
+<h5>Productos </h5>
+<a class="btn" style="color: aliceblue; background-color: #C00A27" data-toggle="modal" data-target="#producto">Añadir
+    produto</a>
+{{#if searchproduct}}
+<a class="btn" style="color: aliceblue; background-color: #C00A27" href="/products">Volver</a>
+{{/if}}
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <form action="/product/search" method="GET" class="form-inline my-2 my-lg-0">
+            <div class="form-group">
+                <input style="width:500px" class="form-control mr-sm-2 side" type="search" name="product"
+                    placeholder="Buscar producto" aria-label="Search" autofocus>
+                <button data-toggle="tooltip" title="Buscar" class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
+<hr>
+<div class="row">
+
+    {{#each searchproduct}}
+    <div class="col-9.5">
+        <div class="card mb-3" style="max-width: 1040px;">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img height="300" src="{{imageURL}}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="admin l-1" style="text-align: right;">
+                        <p class="card-text"><small class="text-muted">Añadida por {{user}}</small></p>
+                        <a data-toggle="modal" data-target="#edit_image" href="#"><i
+                                onclick="getElementById('form_edit_img').action='/product/edit_img/{{id}}?_method=PUT'; getElementById('img').src='{{imageURL}}';"><span
+                                    style="color: black;" data-toggle="tooltip" title="Editar imagen"
+                                    class="fas fa-images fa-2x"></i></span></a>
+                        <a href="#" data-toggle="modal" data-target="#edit_product"><span><i data-toggle="tooltip"
+                                    title="Editar producto" class="far fa-edit fa-2x"
+                                    onclick="getElementById('category').value = '{{category}}'; getElementById('form_edit').action='/product/edit/{{id}}?_method=PUT'; getElementById('name').value='{{name}}'; getElementById('description').value='{{description}}'; getElementById('price').value='{{price}}';"></a></span></i>
+                        <a data-toggle="modal" data-target="#delete_product" href="#"><span
+                                style="color: rgb(248, 0, 0);"><i
+                                    onclick="getElementById('form_delete').action='/product/delete/{{id}}?_method=DELETE';"
+                                    data-toggle="tooltip" title="Eliminar producto"
+                                    class="fas fa-trash-alt fa-2x"></i></span></a>
+                    </div>
+                    <div class="card-body">
+                        <h5 style="color: #C00A27;" class="card-title">{{name}}</h5>
+                        <p class="card-text">{{description}}.</p>
+                        <p class="card-text"><b>Precio:</b> ${{price}}</p>
+                        <p class="card-text"><small class="text-muted">{{timeago date_add}}</small></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{#if a}}
+
+        <p>Lo sentimos, no hemos encontrado ningún producto relacionado con la búsqueda: <span
+                style="font-size: 20px;">{{product}}</span></p>
+
+        <a class="btn btn-block" style="color: aliceblue; background-color: #C00A27" href="/products">Volver</a>
+
+
+        {{/if}}
+        {{#each products}}
+        <div class="col-9.5">
+            <div class="card mb-3" style="max-width: 1040px;">
+                <div class="row no-gutters">
+                    <div class="col-md-6">
+                        <img height="300" src="{{imageURL}}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="admin l-1" style="text-align: right;">
+                            <p class="card-text"><small class="text-muted">Añadida por {{user}}</small></p>
+                            <a data-toggle="modal" data-target="#edit_image" href="#"><i
+                                    onclick="getElementById('form_edit_img').action='/product/edit_img/{{id}}?_method=PUT'; getElementById('img').src='{{imageURL}}';"><span
+                                        style="color: black;" data-toggle="tooltip" title="Editar imagen"
+                                        class="fas fa-images fa-2x"></i></span></a>
+                            <a href="#" data-toggle="modal" data-target="#edit_product"><span><i data-toggle="tooltip"
+                                        title="Editar producto" class="far fa-edit fa-2x"
+                                        onclick="getElementById('category').value = '{{category}}'; getElementById('form_edit').action='/product/edit/{{id}}?_method=PUT'; getElementById('name').value='{{name}}'; getElementById('description').value='{{description}}'; getElementById('price').value='{{price}}';"></a></span></i>
+                            <a data-toggle="modal" data-target="#delete_product" href="#"><span
+                                    style="color: rgb(248, 0, 0);"><i
+                                        onclick="getElementById('form_delete').action='/product/delete/{{id}}?_method=DELETE';"
+                                        data-toggle="tooltip" title="Eliminar producto"
+                                        class="fas fa-trash-alt fa-2x"></i></span></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 style="color: #C00A27;" class="card-title">{{name}}</h5>
+                            <p class="card-text">{{description}}.</p>
+                            <p class="card-text"><b>Precio:</b> ${{price}}</p>
+                            <p class="card-text"><small class="text-muted">{{timeago date_add}}</small></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+  <!-- Modal editar producto -->
+        <div class="modal fade" id="edit_product" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Editar producto </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action='/' name="form_edit" id="form_edit" method='POST' enctype='multipart/form-data'>
+                            <script>
+                                document.write('<input type="hidden" name="url" id="url" value="' + window.location.href + '">');
+                            </script>
+                            <input type="hidden" name="_method" value="PUT">
+                            <div class="form-group">
+                                <label style="color: #C00A27;" for="name">Nombre *</label>
+                                <input class="form-control" type="text" name="name" id="name" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: #C00A27;" for="category">Categoria *</label>
+                                <select class="form-control" name="category" id="category" required>
+                                    <option value=""></option>
+                                    <option value="comida_rapida">Comida rápida</option>
+                                    <option value="postre">Postre</option>
+                                    <option value="bebida">Bebidas y licores</option>
+                                    <option value="salsa">Salsa</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: #C00A27;" for="description">Descripción *</label>
+                                <textarea class="form-control" name="description" id="description"
+                                    type="text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: #C00A27;" for="precio">Precio *</label>
+                                <input type="text" name="price" id="price" class="form-control">
+                            </div>
+                    </div>
+                    <input type="hidden" name="user" id="name" value="{{user.name}}">
+                    <input type="hidden" name="user_id" id="user_id" value="{{user.id}}">
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-block"
+                            style="background-color: #C00A27; color:aliceblue">Editar
+                            producto</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin del modal-->
+<!-- Modal editar imagen -->
+<div class="modal fade" id="edit_image" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Editar imagen </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action='/' name="form_edit_img" id="form_edit_img" method='POST' enctype='multipart/form-data'>
+          <script>
+            document.write('<input type="hidden" name="url" id="url" value="' + window.location.href + '">');
+          </script>
+          <input type="hidden" name="_method" value="PUT">
+          <label style="color: #C00A27;" for="image">Imagen para producto *</label>
+          <input type="file" class="form-control-file " id="image" name="image" required>
+          <input type="hidden" class="form-control" name="imagenactual" id="imagenactual">
+          <hr>
+          <div class="row">
+            <div class="col">
+              <p class="card-text"><small class="text-muted">Imagen actual</small></p>
+              <img src="" width="200px" height="150px" id="img">
+
+            </div>
+            <div class="col">
+              <p class="card-text"><small class="text-muted">Nueva imagen</small></p>
+              <div id="preview"></div>
+            </div>
+          </div>
+
+
+
+      </div>
+      <input type="hidden" name="user" id="name" value="{{user.name}}">
+      <input type="hidden" name="user_id" id="user_id" value="{{user.id}}">
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-block" style="background-color: #C00A27; color:aliceblue">Editasr
+          imagen</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin del modal-->
+<!-- Modal eliminar producto -->
+<div class="modal fade" id="delete_product" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar producto {{name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <span>¿Está seguro de eliminar este producto?
+            Recuerde que esta acción es irreversible y no podrá
+            deshacer esta operación...</span>
+          <form action="" method="POST" name="form_delete" id="form_delete">
+            <input type="hidden" name="_method" value="DELETE">
+            <script>
+              document.write('<input type="hidden" name="url" id="url" value="' + window.location.href + '">');
+            </script>
+        </div>
+        <div class="modal-footer">
+          <button style="background-color:#C00A27; color: aliceblue;" class="btn  btn-block" type="submit"><i
+              class="far fa-trash-alt"></i> Estoy seguro</button>
+          </form>
+          <button type="button" class="btn btn-block btn-light" data-dismiss="modal">Mejor no</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin del modal -->
+
+        <!-- Modal Añadir producto -->
+        <div class="modal fade" id="producto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Añadir producto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/product/add" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label style="color: #C00A27;" for="name">Nombre *</label>
+                                <input class="form-control" type="text" name="name" id="name" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: #C00A27;" for="category">Categoria *</label>
+                                <select class="form-control" name="category" id="category" required>
+                                    <option value=""></option>
+                                    <option value="comida_rapida">Comida rápida</option>
+                                    <option value="postre">Postre</option>
+                                    <option value="bebida">Bebidas y licores</option>
+                                    <option value="salsa">Salsa</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: #C00A27;" for="description">Descripción *</label>
+                                <textarea class="form-control" name="description" type="text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: #C00A27;" for="precio">Precio *</label>
+                                <input type="number" name="price" class="form-control">
+                            </div>
+                            <label style="color: #C00A27;" for="image">Imagen para producto *</label>
+                            <input type="file" class="form-control-file " id="image" name="image" required>
+                            <input type="hidden" class="form-control" name="imagenactual" id="imagenactual">
+                            <hr>
+                            <img src="" width="400px" height="300px" id="imagenmuestra">
+                    </div>
+                    <input type="hidden" name="user" id="name" value="{{user.name}}">
+                    <input type="hidden" name="user_id" id="user_id" value="{{user.id}}">
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-block"
+                            style="background-color: #C00A27; color:aliceblue">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin del modal-->
+
+      
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        // Asignamos el atributo src a la tag de imagen
+                        $('#imagenmuestra').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            // El listener va asignado al input
+            $("#image").change(function () {
+                readURL(this);
+            });
+        </script>
+
+        <script>
+            document.title = 'Productos - La cocina de yoli';
+            document.getElementById("image").onchange = function (e) {
+    // Creamos el objeto de la clase FileReader
+    let reader = new FileReader();
+
+    // Leemos el archivo subido y se lo pasamos a nuestro fileReader
+    reader.readAsDataURL(e.target.files[0]);
+
+    // Le decimos que cuando este listo ejecute el código interno
+    reader.onload = function () {
+      let preview = document.getElementById('preview'),
+        image = document.createElement('img');
+
+      image.src = reader.result;
+      image.width = 200;
+      image.height = 150;
+
+      preview.innerHTML = '';
+      preview.append(image);
+    };
+  }
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+                $("#carouselExampleFade").hide();
+
+            });
+        </script>
