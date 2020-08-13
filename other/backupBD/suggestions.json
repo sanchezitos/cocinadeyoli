@@ -1,0 +1,11 @@
+{"_id":{"$oid":"5ea8d7b25034845e2e641cd0"},"user":"admin","email":"admin@gmail.com","suggestion":"asdfadsf","date_add":{"$date":"2020-04-29T01:26:10.098Z"},"__v":0}
+{"_id":{"$oid":"5e9655880b935a461c882fff"},"user":"jose","email":"jose@gmail.com","suggestion":"Esta todo bien","date_add":{"$date":"2020-04-15T00:30:00.645Z"},"__v":0}
+{"_id":{"$oid":"5e96537d14d718468c6b9d8d"},"email":"juanjose@gmails.com","suggestion":"asldkfjldfjpawpatrol","date_add":{"$date":"2020-04-15T00:21:17.599Z"},"__v":0}
+{"_id":{"$oid":"5e965304c73c9f105c94f277"},"email":"admin@gmail.com","suggestion":"asdfadsf","date_add":{"$date":"2020-04-15T00:19:16.064Z"},"__v":0}
+{"_id":{"$oid":"5e9653a9b69dfe52b43331dc"},"email":"juanjose@gmails.com","suggestion":"asldkfjldfjpawpatrol","date_add":{"$date":"2020-04-15T00:22:01.804Z"},"__v":0}
+{"_id":{"$oid":"5e966f2469f5134e289d2509"},"user":"poter","email":"poter@gmail.com","suggestion":"Se deben agregar más peliculas","date_add":{"$date":"2020-04-15T02:19:16.88Z"},"__v":0}
+{"_id":{"$oid":"5e9a6bcf18f88911e06bdb2b"},"title":"FINAL JDESCARGAS","description":"Averiguar como subirla a un sitio.\r\n","date":{"$date":"2020-04-18T02:54:07.013Z"},"user":"5e896590c31a9a43b830d497","__v":0}
+{"_id":{"$oid":"5e9c50e1949db104b4ecc5e9"},"title":"Exclusion de garantias","description":"El sitio se deslinda de cualquier daño o prejuicio que pueda ocasionar, por ejemplo, la no disponibilidad del mismo.","date":{"$date":"2020-04-19T13:23:45.207Z"},"user":"5e896590c31a9a43b830d497","__v":0}
+{"_id":{"$oid":"5e9c5148949db104b4ecc5eb"},"title":"Derecho de exclusión","description":"El sitio se reserva el derecho de excluir el ingreso a cualquier usuario registrado.","date":{"$date":"2020-04-19T13:25:28.417Z"},"user":"5e896590c31a9a43b830d497","__v":0}
+{"_id":{"$oid":"5e9c5072949db104b4ecc5e8"},"title":"Modificaciones","description":"El sitio se reserva el derecho de realizar cualquier tipo de modificaciones en el futuro\r\n","date":{"$date":"2020-04-19T13:21:54.899Z"},"user":"5e896590c31a9a43b830d497","__v":0}
+{"_id":{"$oid":"5e966f2469f5134e289d2501"},"user":"poter","email":"poter@gmail.com","suggestion":"ESTA PRUEBA PARA SUBIR PELICULAS","date_add":{"$date":"2020-04-15T02:19:16.88Z"},"__v":0}
