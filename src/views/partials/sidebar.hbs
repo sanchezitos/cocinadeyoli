@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/css/nav.css">
+<div id="sidebar">
+    <div class="toggle-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    <ul>  
+        <li><a id="rojo" href="/products"><i class="fas fa-hotdog"></i> Productos</a> </li>
+        <li><a id="rojo" href="/users"><i class="fas fa-user"></i> Usuarios</a></li>
+        {{#if user.name}}
+        <a class="btn btn-button btn-light btn-block" href="/users/salir">Salir</a>
+        {{/if}}
+
+    </ul>
+</div>
+<script src="/js/nav.js"></script>
