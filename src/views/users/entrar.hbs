@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-5 mx-auto "></div>
+
+    <div class="col-md-4 mx-auto ">
+        <div class="card mt-4 text-center side">
+            <hr style="background-color: #C00A27;">
+            <h1 style="color: #C00A27;">Entrar</h1>
+            <div class="card-body ">
+                <form action="/users/entrar" method="POST">
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" placeholder="Correo" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block btn-danger">Entrar</button>
+                        <hr class="my-4">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br>
+<script>
+      $(document).ready(function () {
+    $("#carouselExampleFade").hide();
+  });
+</script>
