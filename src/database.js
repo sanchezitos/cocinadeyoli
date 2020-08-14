@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/cocina'
+mongoose.connect('mongodb+srv://david:Sistemas8@cluster0-drc9a.mongodb.net/<dbname>?retryWrites=true&w=majority'
 	, {
 	useCreateIndex: true,
 	useNewUrlParser: true,
