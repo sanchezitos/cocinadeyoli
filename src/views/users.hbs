@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="row">
+        <form action="/users/search" method="GET" class="form-inline my-2 my-lg-0">
+            <div class="form-group">
+                <input style="width:300px" class="form-control mr-sm-2 side" type="search" name="user"
+                    placeholder="Buscar usuario" aria-label="Search" autofocus>
+                <button data-toggle="tooltip" title="Buscar" class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <hr>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-3.5">
+    </div>
+    <div class="row">
+        <div class="col-3.5">
+            {{#if user.typeuser}}
+            <a class="btn btn-light" href="/users/registrar">Nuevo
+                administrador</a>
+            {{/if}}
+            {{#if searchuser}}
+            <table class="table table-hover table-light">
+                <thead>
+                    <tr>
+                        <th scope="col"> Usuarios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each searchuser}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>
+                            {{#if typeuser}}
+                            <center>
+                                <a data-toggle="tooltip" title="Usuario Administrador"><span style="color: gray;"><i
+                                            class="fas fa-user-shield"></i></span></a>
+                                <a data-toggle="tooltip" title="Mostrar usuario" href="/users/show_user/{{_id}}"><span
+                                        style="color: green;"><i class="fas fa-user-check"></i></span></a>
+                            </center>
+                            {{else}}
+                            <a data-toggle="tooltip" title="Usuario normal"><span style="color: gray;"><i
+                                        class="fas fa-user-edit"></a></span></i>
+                            <a data-toggle="tooltip" href="/users/delete_user/{{_id}}"><span
+                                    style="color: rgb(248, 0, 0);"><i data-toggle="tooltip" title="Eliminar usuario"
+                                        class="fas fa-user-times"></i></span></a>
+                            <a data-toggle="tooltip" title="Mostrar usuario" href="/users/show_user/{{_id}}"><span
+                                    style="color: green;"><i class="fas fa-user-check"></i></span></a>
+
+                            {{/if}}
+                        </td>
+                        <td>Creado {{timeago date}}</td>
+                    </tr>
+
+                    {{/each}}
+                </tbody>
+                <a class="btn btn-light" href="/users">Todos los usuarios</a>
+                {{/if}}
+                {{#if users}}
+                <table class="table table-hover table-light">
+                    <thead>
+                        <tr>
+                            <th scope="col"> Usuarios</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each users}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>
+                                <center>
+                                    <a data-toggle="tooltip" title="Usuario normal"><span style="color: gray;"><i
+                                                class="fas fa-user-edit"></a></span></i>
+                                    <a data-toggle="tooltip" title="Mostrar usuario"
+                                        href="/users/show_user/{{_id}}"><span style="color: green;"><i
+                                                class="fas fa-user-check"></i></span></a>
+                            </td>
+                            <td>Creado {{timeago date}}</td>
+                        </tr>
+
+                    </tbody>
+                    {{/each}}
+                    {{else}}
+
+                    {{/if}}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    document.title = 'Usuarios - La cocina de yoli';
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $("#carouselExampleFade").hide();
+
+    });
+</script>
